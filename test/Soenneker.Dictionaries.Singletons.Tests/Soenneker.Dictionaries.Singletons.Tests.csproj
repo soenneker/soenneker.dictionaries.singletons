@@ -9,7 +9,7 @@
         <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
     </PropertyGroup>
 
-    <ItemGroup><PackageReference Include="Soenneker.Tests.Unit" Version="4.0.1008" /><PackageReference Include="AwesomeAssertions" Version="9.3.0" />
+    <ItemGroup><PackageReference Include="Soenneker.Tests.Unit" Version="4.0.1013" /><PackageReference Include="AwesomeAssertions" Version="9.3.0" />
         <PackageReference Include="xUnit.v3" Version="3.2.2" />
     </ItemGroup>
 
