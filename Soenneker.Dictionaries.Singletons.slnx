@@ -4,10 +4,11 @@
   </Folder>
   <Folder Name="/.github/workflows/">
     <File Path=".github/workflows/build-and-test.yml" />
+    <File Path=".github/workflows/codeql.yml" />
     <File Path=".github/workflows/publish-package.yml" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="src/Soenneker.Dictionaries.Singletons.csproj" />
+    <Project Path="src/Soenneker.Dictionaries.Singletons/Soenneker.Dictionaries.Singletons.csproj" />
   </Folder>
   <Folder Name="/test/">
     <Project Path="test/Soenneker.Dictionaries.Singletons.Tests/Soenneker.Dictionaries.Singletons.Tests.csproj" />
