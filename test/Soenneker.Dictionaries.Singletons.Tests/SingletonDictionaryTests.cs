@@ -1,15 +1,14 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AwesomeAssertions;
 using Soenneker.Tests.Unit;
-using Xunit;
 
 namespace Soenneker.Dictionaries.Singletons.Tests;
 
 public sealed class SingletonDictionaryTests : UnitTest
 {
-    [Fact]
+    [Test]
     public async Task Keyed_initializes_once()
     {
         CancellationToken cancellationToken = TestContext.Current.CancellationToken;
@@ -29,7 +28,7 @@ public sealed class SingletonDictionaryTests : UnitTest
         calls.Should().Be(1);
     }
 
-    [Fact]
+    [Test]
     public async Task T1_argFactory_only_runs_when_missing()
     {
         CancellationToken cancellationToken = TestContext.Current.CancellationToken;
@@ -55,7 +54,7 @@ public sealed class SingletonDictionaryTests : UnitTest
         argFactoryCalls.Should().Be(1);
     }
 
-    [Fact]
+    [Test]
     public async Task T1T2_tuple_argFactory_only_runs_when_missing()
     {
         CancellationToken cancellationToken = TestContext.Current.CancellationToken;
@@ -81,7 +80,7 @@ public sealed class SingletonDictionaryTests : UnitTest
         argFactoryCalls.Should().Be(1);
     }
 
-    [Fact]
+    [Test]
     public async Task TryGet_and_GetAll_work()
     {
         CancellationToken cancellationToken = TestContext.Current.CancellationToken;
@@ -99,7 +98,7 @@ public sealed class SingletonDictionaryTests : UnitTest
         all.Should().ContainKey("k").WhoseValue.Should().Be("v-k");
     }
 
-    [Fact]
+    [Test]
     public async Task Clear_disposes_values()
     {
         CancellationToken cancellationToken = TestContext.Current.CancellationToken;
