@@ -43,6 +43,10 @@ public sealed class SingletonDictionary<TValue> : SingletonKeyDictionary<string,
     /// <summary>
     /// Fluent typed wrapper around <see cref="SingletonKeyDictionary{TKey,TValue}.Initialize{TState}"/>.
     /// </summary>
+    /// <typeparam name="TState">Type of state passed to the callback.</typeparam>
+    /// <param name="state">State value used by the variant.</param>
+    /// <param name="factory">Factory used to create a value when one is needed.</param>
+    /// <returns>The resulting singleton Dictionary.</returns>
     public new SingletonDictionary<TValue> Initialize<TState>(TState state, Func<TState, string, CancellationToken, ValueTask<TValue>> factory)
         where TState : notnull
     {
