@@ -6,9 +6,7 @@ using Soenneker.Dictionaries.Singletons.Abstract;
 
 namespace Soenneker.Dictionaries.Singletons;
 
-/// <summary>
-/// A string-keyed singleton dictionary supporting an initialization argument of type <typeparamref name="T1"/>.
-/// </summary>
+/// <inheritdoc cref="ISingletonDictionary{TValue, T1}"/>
 public sealed class SingletonDictionary<TValue, T1> : SingletonKeyDictionary<string, TValue, T1>, ISingletonDictionary<TValue, T1>
 {
     public SingletonDictionary()

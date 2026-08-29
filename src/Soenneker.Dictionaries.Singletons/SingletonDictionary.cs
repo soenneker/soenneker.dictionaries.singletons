@@ -6,10 +6,7 @@ using Soenneker.Dictionaries.Singletons.Abstract;
 
 namespace Soenneker.Dictionaries.Singletons;
 
-/// <summary>
-/// A string-keyed externally initializing singleton dictionary that uses double-check async locking,
-/// with optional async and sync disposal.
-/// </summary>
+/// <inheritdoc cref="ISingletonDictionary{TValue}"/>
 public sealed class SingletonDictionary<TValue> : SingletonKeyDictionary<string, TValue>, ISingletonDictionary<TValue>
 {
     public SingletonDictionary()
