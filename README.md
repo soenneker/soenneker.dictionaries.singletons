@@ -3,11 +3,22 @@
 [![](https://img.shields.io/nuget/dt/soenneker.dictionaries.singletons.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.dictionaries.singletons/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.dictionaries.singletons/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.dictionaries.singletons/actions/workflows/codeql.yml)
 
-# ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Dictionaries.Singletons
-### An externally initializing singleton dictionary that uses double-check asynchronous locking, with optional async and sync disposal
+# Soenneker.Dictionaries.Singletons
 
-## Installation
+Specializes singleton-key dictionary operations for string keys.
 
-```
+## Install
+
+```bash
 dotnet add package Soenneker.Dictionaries.Singletons
 ```
+
+## What you get
+
+- `ISingletonDictionary<TValue, T1, T2>` — Specializes singleton-key dictionary operations for string keys.
+- `ISingletonDictionary<TValue, T1>` — Specializes singleton-key dictionary operations for string keys.
+- `ISingletonDictionary<TValue>` — Specializes singleton-key dictionary operations for string keys.
+
+## Practical notes
+
+- Calls that return a cached or singleton value reuse the same instance until the owning service is disposed.
