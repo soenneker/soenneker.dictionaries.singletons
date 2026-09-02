@@ -9,9 +9,8 @@ namespace Soenneker.Dictionaries.Singletons.Tests;
 public sealed class SingletonDictionaryTests : UnitTest
 {
     [Test]
-    public async Task Keyed_initializes_once()
+    public async Task Keyed_initializes_once(CancellationToken cancellationToken)
     {
-        CancellationToken cancellationToken = CancellationToken.None;
         int calls = 0;
 
         var dict = new SingletonDictionary<string>(key =>
@@ -29,9 +28,8 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task T1_argFactory_only_runs_when_missing()
+    public async Task T1_argFactory_only_runs_when_missing(CancellationToken cancellationToken)
     {
-        CancellationToken cancellationToken = CancellationToken.None;
         int argFactoryCalls = 0;
 
         var dict = new SingletonDictionary<string, int>((key, arg) =>
@@ -55,9 +53,8 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task T1T2_tuple_argFactory_only_runs_when_missing()
+    public async Task T1T2_tuple_argFactory_only_runs_when_missing(CancellationToken cancellationToken)
     {
-        CancellationToken cancellationToken = CancellationToken.None;
         int argFactoryCalls = 0;
 
         var dict = new SingletonDictionary<string, int, int>((key, a1, a2) =>
@@ -81,9 +78,8 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task TryGet_and_GetAll_work()
+    public async Task TryGet_and_GetAll_work(CancellationToken cancellationToken)
     {
-        CancellationToken cancellationToken = CancellationToken.None;
         var dict = new SingletonDictionary<string>(key => new ValueTask<string>($"v-{key}"));
 
         dict.TryGet("k", out _).Should().BeFalse();
@@ -99,9 +95,8 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task Clear_disposes_values()
+    public async Task Clear_disposes_values(CancellationToken cancellationToken)
     {
-        CancellationToken cancellationToken = CancellationToken.None;
         int disposed = 0;
 
         var dict = new SingletonDictionary<DisposableValue>(key =>
