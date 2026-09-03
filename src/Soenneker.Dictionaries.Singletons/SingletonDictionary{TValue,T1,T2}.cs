@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Soenneker.Dictionaries.SingletonKeys;
@@ -13,7 +14,15 @@ public sealed class SingletonDictionary<TValue, T1, T2> : SingletonKeyDictionary
     {
     }
 
+    public SingletonDictionary(IEqualityComparer<string>? comparer) : base(comparer)
+    {
+    }
+
     public SingletonDictionary(Func<string, T1, T2, ValueTask<TValue>> func) : base(func)
+    {
+    }
+
+    public SingletonDictionary(Func<string, T1, T2, ValueTask<TValue>> func, IEqualityComparer<string>? comparer) : base(func, comparer)
     {
     }
 
@@ -21,7 +30,15 @@ public sealed class SingletonDictionary<TValue, T1, T2> : SingletonKeyDictionary
     {
     }
 
+    public SingletonDictionary(Func<string, T1, T2, CancellationToken, ValueTask<TValue>> func, IEqualityComparer<string>? comparer) : base(func, comparer)
+    {
+    }
+
     public SingletonDictionary(Func<T1, T2, ValueTask<TValue>> func) : base(func)
+    {
+    }
+
+    public SingletonDictionary(Func<T1, T2, ValueTask<TValue>> func, IEqualityComparer<string>? comparer) : base(func, comparer)
     {
     }
 
@@ -29,11 +46,23 @@ public sealed class SingletonDictionary<TValue, T1, T2> : SingletonKeyDictionary
     {
     }
 
+    public SingletonDictionary(Func<string, T1, T2, TValue> func, IEqualityComparer<string>? comparer) : base(func, comparer)
+    {
+    }
+
     public SingletonDictionary(Func<string, T1, T2, CancellationToken, TValue> func) : base(func)
     {
     }
 
+    public SingletonDictionary(Func<string, T1, T2, CancellationToken, TValue> func, IEqualityComparer<string>? comparer) : base(func, comparer)
+    {
+    }
+
     public SingletonDictionary(Func<T1, T2, TValue> func) : base(func)
+    {
+    }
+
+    public SingletonDictionary(Func<T1, T2, TValue> func, IEqualityComparer<string>? comparer) : base(func, comparer)
     {
     }
 }

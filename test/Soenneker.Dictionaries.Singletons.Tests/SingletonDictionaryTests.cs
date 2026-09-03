@@ -28,6 +28,25 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
+    public async Task Comparer_is_forwarded_to_keyed_dictionary(CancellationToken cancellationToken)
+    {
+        int calls = 0;
+
+        var dict = new SingletonDictionary<string>(key =>
+        {
+            Interlocked.Increment(ref calls);
+            return new ValueTask<string>(key);
+        }, StringComparer.OrdinalIgnoreCase);
+
+        string first = await dict.Get("billing", cancellationToken);
+        string second = await dict.Get("BILLING", cancellationToken);
+
+        first.Should().Be("billing");
+        second.Should().Be("billing");
+        calls.Should().Be(1);
+    }
+
+    [Test]
     public async Task T1_argFactory_only_runs_when_missing(CancellationToken cancellationToken)
     {
         int argFactoryCalls = 0;

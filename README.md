@@ -28,6 +28,14 @@ ApiClient sameBilling = await clients.Get("billing", cancellationToken);
 
 Concurrent callers for one missing string key share a single factory execution. A successful value remains cached until removal, clear, or dictionary disposal. Factory failures are not cached.
 
+Pass an `IEqualityComparer<string>` when names require non-default comparison:
+
+```csharp
+var clients = new SingletonDictionary<ApiClient>(
+    name => CreateClient(name),
+    StringComparer.OrdinalIgnoreCase);
+```
+
 ## Creation arguments
 
 Use `SingletonDictionary<TValue, T1>` or `SingletonDictionary<TValue, T1, T2>` when creation needs call-site arguments:
