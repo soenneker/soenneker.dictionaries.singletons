@@ -9,7 +9,7 @@ namespace Soenneker.Dictionaries.Singletons.Tests;
 public sealed class SingletonDictionaryTests : UnitTest
 {
     [Test]
-    public async Task Keyed_initializes_once(CancellationToken cancellationToken)
+    public async ValueTask Keyed_initializes_once(CancellationToken cancellationToken)
     {
         int calls = 0;
 
@@ -28,7 +28,7 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task Comparer_is_forwarded_to_keyed_dictionary(CancellationToken cancellationToken)
+    public async ValueTask Comparer_is_forwarded_to_keyed_dictionary(CancellationToken cancellationToken)
     {
         int calls = 0;
 
@@ -47,7 +47,7 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task T1_argFactory_only_runs_when_missing(CancellationToken cancellationToken)
+    public async ValueTask T1_argFactory_only_runs_when_missing(CancellationToken cancellationToken)
     {
         int argFactoryCalls = 0;
 
@@ -72,7 +72,7 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task T1T2_tuple_argFactory_only_runs_when_missing(CancellationToken cancellationToken)
+    public async ValueTask T1T2_tuple_argFactory_only_runs_when_missing(CancellationToken cancellationToken)
     {
         int argFactoryCalls = 0;
 
@@ -97,7 +97,7 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task TryGet_and_GetAll_work(CancellationToken cancellationToken)
+    public async ValueTask TryGet_and_GetAll_work(CancellationToken cancellationToken)
     {
         var dict = new SingletonDictionary<string>(key => new ValueTask<string>($"v-{key}"));
 
@@ -114,7 +114,7 @@ public sealed class SingletonDictionaryTests : UnitTest
     }
 
     [Test]
-    public async Task Clear_disposes_values(CancellationToken cancellationToken)
+    public async ValueTask Clear_disposes_values(CancellationToken cancellationToken)
     {
         int disposed = 0;
 
