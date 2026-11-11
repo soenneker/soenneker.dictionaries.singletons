@@ -45,6 +45,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Dictionaries.SingletonKeys" Version="11.0.196" />
+        <PackageReference Include="Soenneker.Dictionaries.SingletonKeys" Version="11.0.198" />
     </ItemGroup>
 </Project>
